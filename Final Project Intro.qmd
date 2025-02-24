@@ -3,10 +3,10 @@ title: "Final Project Intro"
 format: html
 editor: visual
 project:
-  output-dir: "C:/Users/Documents/Github/psci3200-lukesheppard"
+  output-dir: "C:/Users/lukes/OneDrive/Documents/Github/psci3200_lukesheppard"
 ---
 
-## Idea 1 (TLDR: Effectiveness of US foreign aid on sustainable governance) asdfjklasdflkjdsf
+## Idea 1 (TLDR: Effectiveness of US foreign aid on sustainable governance)
 
 There is a comprehensive literature on the effectiveness of foreign aid on local and state development that continues to be a heated debate, especially with the rise of China's development initiatives in competition with Western institutions. In light of current events, I plan to investigate the effectiveness of US (Western?) governance foreign aid in improving state capacity. Do aid projects fuel local-level (petty) or elite corruption in developing countries? I would plan to analyze aid projects by category (humanitarian, economic, military) and sector (education, governance, healthcare, etc.) with perceived state capacity in a cross country analysis including a variety of developmental contexts.
 
