@@ -1,0 +1,37 @@
+---
+title: "Research Design"
+format: html
+editor: visual
+project:
+  output-dir: "C:/Users/lukes/OneDrive/Documents/Github/psci3200_lukesheppard"
+---
+
+## Idea 1 (TLDR: Effectiveness of US foreign aid on sustainable governance)
+
+There is a comprehensive literature on the effectiveness of foreign aid on local and state development that continues to be a heated debate, especially with the rise of China's development initiatives in competition with Western institutions. In light of current events, I plan to investigate the effectiveness of US (Western?) governance foreign aid in improving state capacity. Do aid projects fuel local-level (petty) or elite corruption in developing countries? I would plan to analyze aid projects by category (humanitarian, economic, military) and sector (education, governance, healthcare, etc.) with perceived state capacity in a cross country analysis including a variety of developmental contexts.
+
+The datasets I could use are: AidData Core Research Release, Version 3.0 or USAID Webscraped Data Export for aid projects as both datasets capture foreign aid projects globally identified by donor, recipient, and classification. The AidData research covers more recent years and projects from many other Western institutions while the USAID data specifically looks at historical USAID projects.
+
+For the dependent variable I could use different barometers including Geocoded Afrobarometer and Americasbarometer providing local interviews across time on state legitimacy and corruption as measured by a variety of variables including administrative capacity ("the perceived performance of local and national institutions in solving specific problems, such as the provision of basic education and health services"), political involvement ("levels of civic engagement and political participation"), state perception ("engagement with and confidence in local and central government institutions), administrative capacity (the physical presence or absence of state institutions (e.g. police stations, health clinics, schools, water and sanitation systems)"), local capacity ("the reported quality of local public services"), and corruption ("local perceptions of and experiences with various forms of corruption"). While these variables are similar, they highlight important differences such as local v central state capacity and faith in institutions, all over time.
+
+All datasets from on AIDData
+
+## Idea 2 (TLDR: Geographic analysis of foriegn aid effectiveness on sustainable governance)
+
+Capturing a similar research focus in a more technical manner, I could examine the effectiveness of foreign aid projects, specifically governance, geographically across countries. Do aid projects fuel local-level (petty) or elite corruption in developing countries? I would plan to analyze aid projects by sector (education, governance, healthcare, etc.) and geographic location with perceived state capacity in a cross country analysis including a variety of developmental contexts.
+
+The datasets I could use are: AidData's Geocoded Research Releases on Development Projects covering many countries including Malawi, Somalia, Bangladesh, DRC, Nigeria, Iraq, Colombia, Nepal, Uganda, Senegal, Honduras, Timor-Leste, CAR, Burundi, and Sierra Leone. This data captures development projects by donor, recipient, finances, sector, and geocoded location over similar years (until 2014).
+
+I could use the same barometers (whatever countries are captured by both consistent barometers and the AidData within these years) including Geocoded Afrobarometer and Americasbarometer providing localized data on perceptions of state legitimacy and corruption. These variables could be matched on a time scale and geographically to create comparisons across countries and within countries of aid effectiveness. All datasets from on AIDData
+
+I know this is kinda a word salad so happy to clarify any details. Would concentrating the project i.e. projects by sector (governance), region (Latin America), or donor (US) make my casual relationship stronger or weaker? Also cognizant of workload restrictions in merging such disparate datasets.
+
+1.  Describe your research question and provide some background on why you find it interesting or important. Be sure to incorporate the feedback provided on the first assignment. Include references to at least two pieces of existing research that illustrate what has already been discovered about the relationship you are investigating. This could be articles published in academic journals, policy reports and white papers, articles published by think tanks and other credible organizations (ex. Brookings, the United Nations High Commissioner for Refugees, etc.), or pieces of data journalism. A full-credit response will probably be around 150-200 words. (40%)
+
+    Research question
+
+2.  State at least one testable hypothesis. Distill your research question into a statement about a specific relationship you expect to see in the world. In most cases, this hypothesis will describe a causal relationship between two variables (i.e. changes in x cause changes in y). Make an argument for why you expect to see this relationship. This should be based on related findings from existing research and/or your own theoretical/logical reasoning. A full-credit response will probably be around 150-200 words. (25%)
+
+3.  Briefly discuss the specific variables you will use to test your hypothesis and the dataset they are drawn from. Be sure to mention the source of the data (the organization or individuals that produced it), the unit of analysis, and the sample. Create a `ggplot` to visualize the relationship between the variables being used to test your hypothesis. The best method of visualizing this relationship will depend on the scale of your variables. Good methods to consider are scatter plots (for continuous variables), grouped bar charts (for ordinal or binary variables), and line graphs (for continuous variables with time-series). (25%)
+
+4.  Specify the main regression model you will use to test your hypothesis. This regression model should provide a preliminary test for or against the validity of your hypothesis. Use markdown to render the equation neatly to the html file. (10%)
