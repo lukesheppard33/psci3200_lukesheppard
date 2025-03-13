@@ -1,0 +1,25 @@
+sector_value	sector_value_translate	ad_sector_codes	ad_sector_names	ad_purpose_code	ad_purpose_name
+ACCIÓN REFERENTE A DEUDA	Action relating to debt	60010	Action relating to debt		
+ACTIVIDAD BANCARIA Y SERVICIOS FINANCIEROS	Banking and financial services	24005	Banking and financial services,purpose unspecified		
+AGRICULTURA	Agriculture	31105	Agriculture, purpose unspecified		
+AGUA Y SANEAMIENTO	Water and Sanitation	14005	Water Supply and Sanitation,purpose unspecified		
+APOYO A ORGANIZACIONES NO-GUBERNAMENTALES [ONG]	Support to NGO	92005	Support to non-governmental organizations, purposeunspecified		
+AYUDA DE LA MATERIA Y AYUDA GENERAL DEL PROGRAMA	General assistance program	99810	Sectors not specified		
+AYUDA HUMANITARIA	Humanitarian aid	70000	Emergency Assistance and Reconstruction, combinations ofpurposes		
+COMUNICACIÓN	Communication	22005	Communications, purposeunspecified		
+COSTOS ADMINISTRATIVOS DE DONANTES	Administrative costs of donors	91010	Administrative costs		
+EDUCACIÓN	Education	11105	Education, level unspecified,purpose unspecified		
+GENERACIÓN Y FUENTE DE LA ENERGÍA	Power generation and energy	23005	Energy generation and supply,purpose unspecified		
+GOBIERNO Y SOCIEDAD CIVIL	Government and civil society	15105	Government and civil society,purpose unspecified		
+INDUSTRIA	Industry	32105	Industry, purpose unspecified		
+MULTISECTOR / CORTE CRUZADO	Multisector/Cross-cutting	43010	Multisector aid		
+NEGOCIO Y OTROS SERVICIOS	Business and other services	25010	Business support services and institutions		
+OTRA INFRAESTRUCTURA Y SERVICIOS SOCIALES	Other infrastructure and social services	16050	Multisector aid for social services		
+PESCA	Fisheries	31305	Fishing, purpose unspecified		
+POLÍTICAS Y REGULACIONES Y REGULACIONES COMERCIALES Y AJUSTE COMERCIAL	Trade policy, adjustment and regulation 	33105	Trade policy and regulations,purpose unspecified		
+PROGRAMAS Y POLÍTICAS DE POBLACIÓN & SALUD	Programs and policies of population&health	13005	Population policies/ programmes and reproductive health, purposeunspecified		
+RECURSOS MINERALES Y EXPLOTACIÓN MINERA	mineral resources and mining	32205	Mineral resources and mining,purpose unspecified		
+SALUD	Health	12105	Health, general, purposeunspecified		
+SILVICULTURA	Forestry	31205	Forestry, purpose unspecified		
+TRANSPORTE Y ALMACENAJE	Transportation and storage	21061	Storage		
+TURISMO	Tourism	33210	Tourism policy and administrative management		

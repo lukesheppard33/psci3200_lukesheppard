@@ -1,0 +1,7 @@
+status_name	status_trans	ad_status_code	status	ad_status_description
+Cierre	closing	5	Cancelled	The activity has been cancelled
+Condiciones Previas	preconditions	1	Pipeline/identification	The activity is being scoped or planned
+Diseno	design	1	Pipeline/identification	The activity is being scoped or planned
+Ejecucion	execution	2	Implementation	The activity is currently being implemented
+Finalizado	finalized	3	Completion	Physical activity is complete or the final disbursement has been made.
+Suspendida	suspended	6	Suspended	The activity has been temporarily suspended
