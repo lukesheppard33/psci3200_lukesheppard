@@ -19,20 +19,21 @@ project:
     Ultimately, local or elite corruption is incredibly difficult to measure accurately. Inherently obscured and protected, any measure of corruption relies on significant assumptions. Effective measures to observe aid leakage and state corruption have been designed but for this project I am more interested in perceptions of local and state corruption as effective benchmarks and as governance tools in and of themselves. World Bank Group research has shown that citizen perceptions of state trust and legitimacy directly effect state capacity and developmental outcomes. However, citizen perceptions are volatile and likely to under or overestimate real levels of corruption. To better define causality, I will utilize geocoded data and a difference-in-difference approach which should protect against exogenous factors that affect citizen perceptions irrespective of foreign aid. For the independent variable, I will use AidData's Geocoded Research Releases on Development Projects covering many countries including Malawi, Somalia, Bangladesh, DRC, Nigeria, Iraq, Colombia, Nepal, Uganda, Senegal, Honduras, Timor-Leste, CAR, Burundi, and Sierra Leone. This data captures development projects by donor, recipient, finances, sector, and geocoded location over similar years (until 2014). The unit of analysis will be project and I will filter by donor for US projects and sector for different regressions. For the dependent variable I will use different barometers including Geocoded Afrobarometer and Latinobarometro providing local interviews across time on state legitimacy and corruption as measured by a variety of variables including administrative capacity ("the perceived performance of local and national institutions in solving specific problems, such as the provision of basic education and health services"), political involvement ("levels of civic engagement and political participation"), state perception ("engagement with and confidence in local and central government institutions), administrative capacity (the physical presence or absence of state institutions (e.g. police stations, health clinics, schools, water and sanitation systems)"), local capacity ("the reported quality of local public services"), and corruption ("local perceptions of and experiences with various forms of corruption"). While these variables are similar, they highlight important differences such as local v central state capacity and faith in institutions, all over time. The unit of analysis is individuals.
 
     ```{r}
-    latino <- Latinobarometro_2023_Eng_v1_0
+    #latino <- Latinobarometro_2023_Eng_v1_0
+    library(haven)
+    latino <- read_dta("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/Latinobarometro_2023_Eng_Stata_v1_0.dta")
     table(latino$idenpa)
     colombia <- subset(latino, idenpa == 152)
     #Measure of elite corruption: P12ST. Generally speaking, would you say that (country) is governed by a few powerful groups in their own interest? Or is it governed for the good of all?
     table(colombia$P12ST)
     mean(colombia$P12ST)
     #Measure of national government trust
-    table(colombia$P13ST.E)
-    mean(colombia$P13ST.E)
+    table(colombia$P13ST_E)
+    mean(colombia$P13ST_E)
     #Measure of perception of corruption
     table(colombia$P60ST)
     mean(colombia$P60ST)
 
-    library(haven)
     projects <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/ColombiaAIMS_GeocodedResearchRelease_Level1_v1.1.1/data/projects.csv")
     location <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/ColombiaAIMS_GeocodedResearchRelease_Level1_v1.1.1/data/locations.csv")
     projects <- subset(projects, donors_iso3 == "USA")
