@@ -1,10 +1,7 @@
-install.packages(c("quanteda", "devtools", "quanteda.textmodels", "quanteda.corpora", "quanteda.textplots"))
+#install.packages(c("quanteda", "devtools", "quanteda.textmodels", "quanteda.corpora", "quanteda.textplots"))
 # or if that does not work:
-devtools::install_github("quanteda/quanteda.corpora")
-install.packages("quanteda.corpora")
-library("quanteda.corpora")
 install.packages("devtools")
-
+devtools::install_github("quanteda/quanteda.corpora")
 
 require(quanteda)
 require(quanteda.corpora)
@@ -33,6 +30,10 @@ obama_sotu <- corpus_subset(speeches, President == "Obama")
 
 # you can get the text of each speech
 as.character(obama_sotu)[1]
+as.character(data_corpus_sotu)[140]
+as.character(data_corpus_sotu)[159]
+
+
 
 # You can get the individual tokens of each speech
 obama_tokens <- tokens(obama_sotu)
@@ -59,16 +60,13 @@ dim(obama_dfm)
 
 # Too many columns! Lets see if removing stopwords can help
 
-obama_dfm_2 <- dfm(obama_tokens, remove = stopwords("english"),
-                   remove_punct = T)
+obama_dfm_2 <- dfm_remove(obama_dfm, pattern = stopwords("english"))
 dim(obama_dfm_2) # not bad
 head(obama_dfm_2)
 # we can stem to improve it even more
 
 
-obama_dfm_3 <- dfm(obama_tokens, remove = stopwords("english"),
-                   stem =T,
-                   remove_punct = T)
+obama_dfm_3 <- dfm_wordstem(obama_dfm_2)
 dim(obama_dfm_3) # MUCH MUCH better
 head(obama_dfm_3)
 
@@ -82,11 +80,11 @@ textplot_wordcloud(obama_dfm_2, max_words = 100)
 # ---- Dictionaries ----- #
 
 out_dict <- dictionary(list(
-  positive = c("good", "nice", "excellent", "positive", "fortunate",
+  positive = c("good", "nice", "great", "strong", "excellent", "positive", "fortunate",
                "successful", "effective", "efficient", "beneficial", "valuable", "useful",
                "advantageous", "productive", "profitable", "rewarding", "worthwhile",
                "correct", "superior", "happy", "bueno", "prosper"),
-  negative = c("bad", "awful", "nasty", "negative", "unfortunate",
+  negative = c("bad", "awful", "nasty", "negative", "unfortunate", "weak", "woke",
                "problematic", "concerning", "troubling", "worrisome", "alarming", "disturbing",
                "harmful", "damaging", "destructive", "ruinous", "catastrophic", "disastrous",
                "wrong", "inferior", "miserable", "terrible", "abusive")))
@@ -106,6 +104,27 @@ ggplot(sent_data_out, aes(x = year, y = prop_negative)) +
   labs(y = "% Negative", x = "", title= "Sentiment") +
   theme_classic()
 
+#Experimentation
+out_dict2 <- dictionary(list(
+  immigration = c("agriculture", "crops"),
+  war = c("fascist")))
+
+# Run the conservative manifestos through this dictionary
+#"war", "military", "fight", "aggression", "violence", "defense", "conflict",
+speeches_dic2 <- dfm_lookup(dfm(tokens(speeches)), dictionary = out_dict2)
+
+# Visualize this
+sent_data_out2 <- convert(speeches_dic2, to = "data.frame") %>%
+  rowwise() %>%
+  mutate(prop = immigration,
+         year = abs(parse_number(doc_id)))
+
+ggplot(sent_data_out2, aes(x = year, y = prop)) +
+  geom_line() +
+  geom_smooth(method = "loess", formula = y ~ x) +
+  labs(y = "% Negative", x = "", title= "Sentiment") +
+  theme_classic()
+
 # ---- Text models with Quanteda ----- #
 
 require(quanteda.textmodels)
@@ -114,12 +133,18 @@ speeches_dfm <- dfm(tokens(speeches), remove = stopwords("english"),
                     stem =T,
                     remove_punct = T)
 
+speeches_tokens <- tokens(speeches, remove_punct = T)
+speeches_dfm <- dfm(speeches_tokens)
+speeches_dfm_2 <- dfm_remove(speeches_dfm, pattern = stopwords("english"))
+speeches_dfm_3 <- dfm_wordstem(speeches_dfm_2)
+
+
 # nd = number of semantic dimensions
 # lets say 2: economics and social issues
 # Note: it is unspurevised but WE have to make a substantive decision
 # re the number of semantic dimensions there are
 
-lsa_model <- textmodel_lsa(speeches_dfm, nd = 2)
+lsa_model <- textmodel_lsa(speeches_dfm_3, nd = 2)
 # you can seee, each doc is assigned a score for 2 dimension
 head(lsa_model$docs)
 # lets see what words load onto the dimensions
