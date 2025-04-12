@@ -1,26 +1,202 @@
 ---
 title: "Data Assignment"
-format: html
-editor: visual
+author: "Luke Sheppard"
+institute: "University of Pennsylvania"
+
+date: last-modified
+toc: true
+
+format:
+  html: 
+    self-contained: true
+
+editor: source
+project:
+  output-dir: "C:/Users/lukes/OneDrive/Documents/Github/psci3200_lukesheppard"
 ---
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
+Part 1: Read-in data and prepare for analysis
 ```{r}
-1 + 1
+#| echo: true
+#| include: false
+#| warning: false
+#| message: false
+library(ggplot2)
+library(readr)
+library(ggdag)
+library(tidyverse)
+library(gt)
+library(modelsummary)
+library(MetBrewer)
+
+# read-in data
+dat = read_csv("https://raw.githubusercontent.com/jrspringman/psci3200-globaldev/main/workshops/aau_survey/clean_endline_did.csv" ) %>%
+    # clean home region variable
+  mutate(q8_baseline = ifelse(q8_baseline == "Southern Nations, Nationalities, and Peoples Region", "SNNPR", q8_baseline), 
+         q8_baseline = str_remove(q8_baseline, " Region"))
+# create color palette for plotting
+palette = MetBrewer::met.brewer(name = "Cross")
+#I hid this section to remove clutter
 ```
-
-You can add options to executable code like this
-
+Requirement 1
 ```{r}
-#| echo: false
-2 * 2
-```
+#| echo: true
+#| include: true
+#| warning: false
+#| message: false
 
-The `echo: false` option disables the printing of code (only output is displayed).
+#Renaming all the necessary variables
+dat <- dat %>%
+  rename(
+    gender = q3_baseline,
+    civ = q26_civ,
+    politics = q26_politics,
+    public = q26_public,
+    office = q27_1,
+    ngo = q27_3,
+    self.change = q17_3,
+    youth.engage = q17_1,
+    youth.change = q17_2,
+    civ.b = q26_civ_baseline,
+    politics.b = q26_politics_baseline,
+    public.b = q26_public_baseline,
+    office.b = q27_1_baseline,
+    ngo.b = q27_3_baseline,
+    self.change.b = q17_3_baseline,
+    youth.engage.b = q17_1_baseline,
+    youth.change.b = q17_2_baseline
+  ) %>% 
+  drop_na(gender, civ, politics, public, office, ngo, self.change, youth.engage, youth.change, civ.b, politics.b, public.b, office.b, ngo.b, self.change.b, youth.engage.b, youth.change.b)
+#Dropped NA values for simplicity which may disrupt some regression results, in general conserving the maximum amount of data possible would be ideal for my final project
+```
+Part 2: Create Index Measures
+
+Requirement 2
+
+An additive index combines the varied scales of multiple variables measuring similar concepts to create one unified scale that can be analyzed in a more complex and reliable. Most generally, an additive index sums the various individual variable scores on the total variable range possible. Additive indexes should be used when multiple variables measure different variations or concepts of a variable such as civic attitudes, civic participation, or other ideas that can be hard to objectively measure. Additive measures should not be used on differing concepts as that interpretation would be meaningless but it is effective in simplifying an analysis when used correctly. An averaged z-score measures how far an input varies from the variable mean in terms of standard deviations. A z-score is calculated by subtracting the sample average from the variable value and then dividing by the sample standard deviation to create a standardized measure of variation. They should be used when comparing variables on vastly different scales such that standardization would be helpful. They cannot be used on qualitative variables unless quantified and as standard deviations are difficult to interpret except in comparison to other standard deviations, they should not be used solely on one variable for interpretation. 
+
+Requirement 3
+```{r}
+#| echo: true
+#| include: true
+#| warning: false
+#| message: false
+
+#True/False variables naturally translate to integer variable, simply added variables together for additive variable
+dat$public.index <- (dat$civ + dat$politics + dat$public + dat$office + dat$ngo)
+dat$public.b.index <- (dat$civ.b + dat$politics.b + dat$public.b + dat$office.b + dat$ngo.b)
+
+#For all averaged z-scores, used the scale function to create a z-score on each individual variable, then found average 
+dat$civ.z <- scale(dat$civ)
+dat$politics.z <- scale(dat$politics)
+dat$public.z <- scale(dat$public)
+dat$office.z <- scale(dat$office)
+dat$ngo.z <- scale(dat$ngo)
+dat$future.z <- (dat$civ.z + dat$politics.z + dat$public.z + dat$office.z + dat$ngo.z) /5
+
+dat$civ.b.z <- scale(dat$civ.b)
+dat$politics.b.z <- scale(dat$politics.b)
+dat$public.b.z <- scale(dat$public.b)
+dat$office.b.z <- scale(dat$office.b)
+dat$ngo.b.z <- scale(dat$ngo.b)
+dat$future.b.z <- (dat$civ.b.z + dat$politics.b.z + dat$public.b.z + dat$office.b.z + dat$ngo.b.z) /5
+
+dat$self.change.z <- scale(dat$self.change)
+dat$youth.engage.z <- scale(dat$youth.engage)
+dat$youth.change.z <- scale(dat$youth.change)
+dat$efficacy.z <- (dat$self.change.z + dat$youth.change.z + dat$youth.engage.z) /3
+
+dat$self.change.b.z <- scale(dat$self.change.b)
+dat$youth.engage.b.z <- scale(dat$youth.engage.b)
+dat$youth.change.b.z <- scale(dat$youth.change.b)
+dat$efficacy.b.z <- (dat$self.change.b.z + dat$youth.change.b.z + dat$youth.engage.b.z) /3
+```
+Requirement 4
+```{r}
+#Utilized a density plot to display the Z-scores, the low number of variables and categorical nature of the original variables restrains the z-scores to a finite number of options creating blocky density plots
+ggplot(dat, aes(x = future.z)) +
+  geom_density(fill = "blue") +
+  labs(title = "Future Plans (Endline)", x = "Z-Score", y = "Density") +
+  theme_minimal()
+
+ggplot(dat, aes(x = future.b.z)) +
+  geom_density(fill = "blue") +
+  labs(title = "Future Plans (Baseline)", x = "Z-Score", y = "Density") +
+  theme_minimal()
+
+ggplot(dat, aes(x = efficacy.z)) +
+  geom_density(fill = "blue") +
+  labs(title = "Efficacy (Endline)", x = "Z-Score", y = "Density") +
+  theme_minimal()
+
+ggplot(dat, aes(x = efficacy.b.z)) +
+  geom_density(fill = "blue") +
+  labs(title = "Eficacy (Baseline)", x = "Z-Score", y = "Density") +
+  theme_minimal()
+```
+Part 3: Estimating models
+
+Requirement 5
+```{r}
+#| echo: true
+#| include: true
+#| warning: false
+#| message: false
+
+#Utilized tidyverse function to filter to second dataset
+dat2 = dat %>% 
+  select(response_id, gender, future.z, future.b.z, efficacy.z, efficacy.b.z)
+output <- lm(future.b.z ~ efficacy.b.z, dat2)
+modelsummary(output, stars = TRUE)
+```
+Alpha or the intercept tells us the average value of the future plans variable when the efficacy variable is 0, or given z-score at the average value. Beta or the slope tells us how the future plans variable changes due to a 1 standard deviation increase from the mean in the efficacy variable. The relationship displayed suggests that the likelihood of future plans in public service variable increase ~0.1 standard deviations for every 1 standard deviation increase above the mean in the efficacy variable. There is a positive relationship such that as respondents feel greater feelings of political efficacy (they and others can engage and meaningfully make change) they are more likely to plan to work in public sector or civil society. To interpret this relationship causally we would need significant statistical assumptions including that the sample is representative of the general population, there are no confounding variables which cause both, there is no interference or spillover effects, etc. 
+
+Requirement 6
+```{r}
+#Creating binary variable with tidyverse function
+dat2 = dat2 %>% mutate(
+  b.efficacy.z = 
+    case_when(efficacy.z < 0 ~ 0,
+              efficacy.z >= 0 ~ 1) 
+)
+
+dat2 = dat2 %>% mutate(
+  b.efficacy.b.z = 
+    case_when(efficacy.b.z < 0 ~ 0,
+              efficacy.b.z >= 0 ~ 1) 
+)
+
+output2 <- lm(future.b.z ~ b.efficacy.b.z*gender, dat2)
+modelsummary(output2, stars = TRUE)
+```
+Alpha or the intercept shows the average value of the future plans variable in standard deviations when both the efficacy and gender variable are 0 such that the efficacy value is below the sample mean and the respondent is female. Beta 1 shows that the future plans variable increases by 0.126 standard deviations on average when the efficacy variable value goes from below to above the sample mean when gender held constant or among all female respondents. Beta 2 shows that the future plan variable increases by 0.077 standard deviations on average for 1 unit increase in gender variable or among male respondents. Finally, Beta 3, the interaction term, shows that the future plan variable increases by slightly less (0.126-0.032) on average for a one unit increase in efficacy variable or when values go from below to above sample mean among male respondents instead of female respondents. Thus, increases in feelings of efficacy create larger increases in chance of future plans for public service for women than men. Causally, this result can be expected because although statistically insignificant, in our sample men are more likely to be planning for careers in public service generally and may have more natural opportunities or systemically feel more drawn to the public sector in a patriarchal society. 
+
+Requirement 7
+```{r}
+#Renaming the variables for simplicity in conversion to long data format, having baseline and endline status at end of variable name makes it easier
+dat3 <- dat2 %>%
+  rename(
+    future.z_b = future.b.z,
+    efficacy.z_b = efficacy.b.z,
+    b.efficacy.z_b = b.efficacy.b.z,
+    future.z_e = future.z,
+    efficacy.z_e = efficacy.z,
+    b.efficacy.z_e = b.efficacy.z
+  )
+
+#Pivoting to long data format, difficult to keep the column names consistent, had to create two pivots after playing with the data
+dat3 <- dat3 %>%
+  pivot_longer(
+    cols = ends_with("_b") | ends_with("_e"),
+    names_to = c("variable", "time"),
+    names_sep = "_",
+    values_to = "value"
+  ) %>%
+  pivot_wider(
+    names_from = "variable",
+    values_from = "value"
+  )
+
+output3 <- lm(future.z ~ efficacy.z + factor(response_id), dat3)
+modelsummary(output3, stars = TRUE, coef_omit = "response_id")
+```
+Unit fixed effects remove all time-invariant characteristics of each unit and absorbs all between-unit variation such that Beta only expresses within-unit variation. Including every individual respondent over panel data (minor before and after in this example), the regression now only estimates how respondents change over time, not how respondents generally are. The meaning of Beta 1 or the slope is that if respondents face a 1 standard deviation increase in their feelings of political efficacy, their likelihood of future plans of public service increase by 0.01 standard deviations controlling for stable traits like demographic variables or constant personality characteristics. This suggests that the majority of the effect previously seen is dependent on integral characteristics of the respondents as whatever treatment administered from baseline to endline had a statistically insignificant effect in increasing likelihood of political service when feelings of political efficacy is increased.

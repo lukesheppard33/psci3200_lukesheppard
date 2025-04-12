@@ -6,6 +6,9 @@ institute: "University of Pennsylvania"
 date: last-modified
 toc: true
 
+bibliography: references.bib
+
+
 format: 
   html: 
     self-contained: true
@@ -13,7 +16,6 @@ format:
 editor: source
 project:
   output-dir: "C:/Users/lukes/OneDrive/Documents/Github/psci3200_lukesheppard"
-  bibliography: references.bib
 ---
 1.  Introduction
     
@@ -37,8 +39,18 @@ project:
 3.  Data
 
     Ultimately, local or elite corruption is incredibly difficult to measure accurately. Inherently obscured and protected, any measure of corruption relies on significant assumptions. Effective measures to observe aid leakage and state corruption have been designed but for this project I am more interested in perceptions of local and state corruption as effective benchmarks and as governance tools in and of themselves. World Bank Group research has shown that citizen perceptions of state trust and legitimacy directly effect state capacity and developmental outcomes. However, citizen perceptions are volatile and likely to under or overestimate real levels of corruption. To better define causality, I will utilize geocoded data and a difference-in-difference approach which should protect against exogenous factors that affect citizen perceptions irrespective of foreign aid. For the independent variable, I will use AidData's Geocoded Research Releases on Development Projects covering many countries including Malawi, Somalia, Bangladesh, DRC, Nigeria, Iraq, Colombia, Nepal, Uganda, Senegal, Honduras, Timor-Leste, CAR, Burundi, and Sierra Leone. This data captures development projects by donor, recipient, finances, sector, and geocoded location over similar years (until 2014). The unit of analysis will be project and I will filter by donor for US projects and sector for different regressions. For the dependent variable I will use different barometers including Geocoded Afrobarometer and Latinobarometro providing local interviews across time on state legitimacy and corruption as measured by a variety of variables including administrative capacity ("the perceived performance of local and national institutions in solving specific problems, such as the provision of basic education and health services"), political involvement ("levels of civic engagement and political participation"), state perception ("engagement with and confidence in local and central government institutions), administrative capacity (the physical presence or absence of state institutions (e.g. police stations, health clinics, schools, water and sanitation systems)"), local capacity ("the reported quality of local public services"), and corruption ("local perceptions of and experiences with various forms of corruption"). While these variables are similar, they highlight important differences such as local v central state capacity and faith in institutions, all over time. The unit of analysis is individuals.
+    
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| include: true
+#| eval: true
+#| setup
+```
 
-    ```{r}
+```{r}
+    #| echo: true
     #latino <- Latinobarometro_2023_Eng_v1_0
     library(haven)
     latino <- read_dta("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/Latinobarometro_2023_Eng_Stata_v1_0.dta")
@@ -75,6 +87,7 @@ project:
   a. Regression Model
 
 ```{r}
+#| echo: false
 #lm(P60ST ~ colombia.aid, colombia)
 #Renamed corruption variable by number or funds of project
 #Final regression will be 
