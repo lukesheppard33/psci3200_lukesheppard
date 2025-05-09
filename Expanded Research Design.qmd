@@ -12,93 +12,163 @@ bibliography: references.bib
 format: 
   html: 
     self-contained: true
+    theme: cosmo
+    toc: true
+    page-layout: full
 
 editor: source
 project:
   output-dir: "C:/Users/lukes/OneDrive/Documents/Github/psci3200_lukesheppard"
 ---
-1.  Introduction
 
-    I plan to investigate whether US foreign aid projects fuel local-level (petty) or elite corruption. I am interested in this question in light of current events and the resulting restructuring of US foreign aid efforts. Additionally, this question addresses the continuing debate on the effectiveness of foreign aid, especially on recipient institutional capacity. Although estimates of aid lost to corruption are widely overstated there remains the threat that aid funding is mismanaged and misappropriated by bad state actors creating ineffective programs and further entrenching regressive outcomes (@Kenny_2024). However, by nature aid flows to countries with lower institutional capacities and high levels of corruption, thus some mismanagement of foreign aid is inevitable. In this project, I plan to estimate if US foreign aid exacerbates existing corruption i.e. there exists a causal relationship between US foreign aid deliverance and institutional corruption. 
-    Existing literature highlights the possibility of regressive effects due to foreign aid. Aid disbursements correspond with investments in tax safe havens from recipient countries, misappropration by elites, suggesting an aid leakage rate around 7.5% (@Anderson_2022). In concentrated transfers, significant leakage is observed by local officials varying strongly by community bargaining power (@Reinikka_2004). Foreign aid leakage from local and elite corruption has distributional consequences and may exacerbate regressive outcomes as corruption affects aid distribution along existing power and income lines. Despite aid goals, implementation difficulties associated with corruption and low capacity in poorer, more remote locations result in disproportionate distribution of aid to richer communities (@Briggs_2017). Thus donors also self select into aid projects along existing inequalities in response to patterns of local bargaining, corruption, and aid mismanagement.
-    Although states have information and implementation advantages, due to leakage and fungibility concerns donors often forego budget support and recipient control by circumventing local institutions through project aid delivered by non-governmental organizations (NGOs) (@Reinikka_2004). Due to structural limitations, aid often bypasses state institutions by relying on NGOs contributing to government distrust by interferring with state capacities and citizens' ability to hold politicians accountable. NGO service delivery weaken the "Fiscal Link," the link between state performance and citizen welafre through taxation and public service deliverty, and undermines accountability as politicians get credit for aid disbursements manipualting political attitudes (@Cruz_2016). This undeserved credit claiming varies both on voter information and local oversight and capacity, decreasing accountability pathways in communities with exisiting low responsiveness and entrenching bad state actors (@Baldwin_2023). Foreign aid and its implementation concerns due to leakage further cycles of foreign dependence and local incapacity.
-    Finally, ignoring recipient pathways, foreign aid is tied to political and economic dynamics in donor countries, much like the current events motivating this paper, which depends on motivations outside of improving recipient outcomes. Governance aid projects, designed to build state capacity and public trust cognizant of the aid dependence debate, may have neglible effects due to aid's impact on political incentives, communication networks, and other community mechanisms to support local trust and legitimacy (@Evans_2021). The transient effect of aid also create misalignments as projects often fail to be translated into systematic or institutional change due to poltical or economic windfalls, scale (conceptual complications in increasing project size to larger population) and implementation (shifting from NGO to government provision) difficulties of projects (@Bold_2018). Indeed, bilateral donors have strategic reasons in aid selection which has rebounded in NGO restriction ws targeting democracy/governance promotion from countries wary of foreign interference and Western imperialism. As the biggest donor, the US has also concentrated aid on legacy and soft power concenrs attempting to win hearts and minds. By providing public service goods such as health and education outcomes, recipient citizens are informed of where aid comes from and often its conditionality. While aid improves trust in foreign institutions, these soft power battles and their implementation through state and non-state actors have lasting effects on institutional capacity. Foreign aid is controlled by outside donors based on percieved recpient corruption and geopolitical importance or donor foreign policy objectives and ignorance. In summary, the exisiting literature recognizes the precarious relationship between foreign aid and quality of government due to leakage, implementation difficulties, and disruptions to state institutions (@Dietrich_2023). 
-    I plan to analyze US aid projects by category: humanitarian, economic, military, and development, and development sectors: education, governance, healthcare, infrastructure, etc. with perceptions of corruption in a cross country analysis. Although humanitarian and military aid would be expected to target areas specifically in crisis and strategic objectives, economic and development aid would be expected to target countries where poverty prevention and long-term political, social, and economic development seem feasible i.e. sufficient state capacity to implement projects partnering with recipients. NGOs contribute primarily to health, education, agriculture, and social infrastructure costs moreso than government institutions as donors prefer NGOs over local capabilities whenever possible. Donors also recognize instability and local incapacity harming these sectors and the effective rate of return for service delivery. However, NGOs are unable to contribute to industries with hardcore infrastructure cosets such as transportation, energy, water/sanitation, business/trade development, etc. Thus, the impact on citizen perception of government service delivery should center around high cost infrastructure rather than direct delivery service which is often appropriated by NGOs. I am ultimately interested in whether  bilateral development aid is effective and to what extent it fuels petty or elite corruption.
-    Previous studies have examined the effect of foreign aid on corruption through mega studies, analyzing total ODA disbursements compared to national corruption ratings. One example found no significant reduction impact on corruption but failed to differentiate by aid type or recipient (@Okada_2012). My research design attempts to go beyond generalist approaches using geographic indicators across countries rather than global aid commitments. My appraoch also relies on aid commitments and as a robustness check using alternative aid indexs utilizing aid disbursements or alternative corruption perception indexes such as Transparency International.
-    
-2.  Hypotheses
+#1. Introduction
 
-    Although foreign aid is increasingly effective and resistance to leakage, the foreign delivery of services affects recipient capabilities. While multilateral development aid prioritizes delivery where preferences overlap, bilateral development is dependent on variable domestic factors which may further disrupt effective aid.As a result, I predict bilateral development aid has complex effects varying by sector on recipient quality of governance. Specifically, I predict that aid which delivers services reliably susceptible to leakage and corruption and for these reasons generally through non-state actors such as healthcare, social infrastructure, and education will decrease perceptions of corruption due to credit claiming. These sectors, which low capacity states ineffectively provide, are vital for alleviating human suffering and improving citizen outcomes. Thus, donors will prioritize these industries for political and logistical ease. As donors seek to more effectively provide services and inform citizenry of their benevolence, I expect domestic governance capabilities will resultedly decrease while citizens' perception of domestic governments will be distracted by temporary service deployment. 
-    Conversely, governance aid, aid specifically designed to promote state capacity, will have limited effects. Governance projects compete with foreign aid service delivery and thus even successful projects increasing state capacity will have less impact on citizen perception than these far reaching projects impacting daily lives. Additionally, citizens perception of governance will be more largely controlled by trust in local and national institutions and their credit claiming of foreign aid service delivery. Thus increasing US aid funding for sectors delivering services will cause increased perceptions of corruption. In comparison, increasing or decreasing US aid funding for governance projects will cause negligible changes in perceptions of corruption. These predictions reflect earlier cited research and my own theoretical reasoning that citizens will respond more effectively to high implementation projects involving service delivery. Inversely, governance projects targeting unstable areas will suffer from existing corruption, target areas with traditional implementation problems, and have minimal impact on citizenry. 
-    Finally, military and humanitarian aid are highly realizable services in emergency areas and based heavily on donor strategic interests. Thus, increasing US aid funding for military and humanitarian aid will cause increased perceptions of corruption. These types of aid highlight state incapacity in highly public examples  minimizing the ability for local credit claiming and creating distrust of foreign interference. 
+I plan to investigate whether US foreign aid projects fuel local-level (petty) or elite corruption. I am interested in this question in light of current events and the resulting restructuring of US foreign aid efforts. Additionally, this question addresses the continuing debate on the effectiveness of foreign aid, especially on recipient institutional capacity. Although estimates of aid lost to corruption are widely overstated there remains the threat that aid funding is mismanaged and misappropriated by bad state actors creating ineffective programs and further entrenching regressive outcomes (@Kenny_2024). However, by nature aid flows to countries with lower institutional capacities and high levels of corruption, thus some mismanagement of foreign aid is inevitable. In this project, I plan to estimate if US foreign aid exacerbates existing corruption i.e. there exists a causal relationship between US foreign aid deliverance and institutional corruption.
 
-3.  Data
+Existing literature highlights the possibility of regressive effects due to foreign aid. Aid disbursements correspond with investments in tax safe havens from recipient countries, misappropration by elites, suggesting an aid leakage rate around 7.5% (@Anderson_2022). In concentrated transfers, significant leakage is observed by local officials varying strongly by community bargaining power (@Reinikka_2004). Foreign aid leakage from local and elite corruption has distributional consequences and may exacerbate regressive outcomes as corruption affects aid distribution along existing power and income lines. Despite aid goals, implementation difficulties associated with corruption and low capacity in poorer, more remote locations result in disproportionate distribution of aid to richer communities (@Briggs_2017). Thus donors also self select into aid projects along existing inequalities in response to patterns of local bargaining, corruption, and aid mismanagement.
 
-    Country Fixed Effects
-    Lagged IV to DV
-    Control for obvious pre-treament confounders
-    Think about "most likely" design? Such that in worse case scenarios effect not observed or more likely in best case scenarios effect observed. 
-    
-    Ultimately, local or elite corruption is incredibly difficult to measure accurately. Inherently obscured and protected, any measure of corruption relies on significant assumptions. Effective measures to observe aid leakage and state corruption have been designed but for this project I am more interested in perceptions of local and state corruption as effective benchmarks and as governance tools in and of themselves. World Bank Group research has shown that citizen perceptions of state trust and legitimacy directly effect state capacity and developmental outcomes. However, citizen perceptions are volatile and likely to under or overestimate real levels of corruption. To better define causality, I will utilize geocoded data and a difference-in-difference approach which should protect against exogenous factors that affect citizen perceptions irrespective of foreign aid. For the independent variable, I will use AidData's Geocoded Research Releases on Development Projects covering many countries including Malawi, Somalia, Bangladesh, DRC, Nigeria, Iraq, Colombia, Nepal, Uganda, Senegal, Honduras, Timor-Leste, CAR, Burundi, and Sierra Leone. This data captures development projects by donor, recipient, finances, sector, and geocoded location over similar years (until 2014). The unit of analysis will be project and I will filter by donor for US projects and sector for different regressions. For the dependent variable I will use different barometers including Geocoded Afrobarometer and Latinobarometro providing local interviews across time on state legitimacy and corruption as measured by a variety of variables including administrative capacity ("the perceived performance of local and national institutions in solving specific problems, such as the provision of basic education and health services"), political involvement ("levels of civic engagement and political participation"), state perception ("engagement with and confidence in local and central government institutions), administrative capacity (the physical presence or absence of state institutions (e.g. police stations, health clinics, schools, water and sanitation systems)"), local capacity ("the reported quality of local public services"), and corruption ("local perceptions of and experiences with various forms of corruption"). While these variables are similar, they highlight important differences such as local v central state capacity and faith in institutions, all over time. The unit of analysis is individuals.
+Although states have information and implementation advantages, due to leakage and fungibility concerns donors often forego budget support and recipient control by circumventing local institutions through project aid delivered by non-governmental organizations (NGOs) (@Reinikka_2004). Due to structural limitations, aid often bypasses state institutions by relying on NGOs contributing to government distrust by interferring with state capacities and citizens' ability to hold politicians accountable. NGO service delivery weaken the "Fiscal Link," the link between state performance and citizen welafre through taxation and public service deliverty, and undermines accountability as politicians get credit for aid disbursements manipualting political attitudes (@Cruz_2016). This undeserved credit claiming varies both on voter information and local oversight and capacity, decreasing accountability pathways in communities with exisiting low responsiveness and entrenching bad state actors (@Baldwin_2023). Foreign aid and its implementation concerns due to leakage further cycles of foreign dependence and local incapacity.
+
+Finally, ignoring recipient pathways, foreign aid is tied to political and economic dynamics in donor countries, much like the current events motivating this paper, which depends on motivations outside of improving recipient outcomes. Governance aid projects, designed to build state capacity and public trust cognizant of the aid dependence debate, may have neglible effects due to aid's impact on political incentives, communication networks, and other community mechanisms to support local trust and legitimacy (@Evans_2021). The transient effect of aid also create misalignments as projects often fail to be translated into systematic or institutional change due to poltical or economic windfalls, scale (conceptual complications in increasing project size to larger population) and implementation (shifting from NGO to government provision) difficulties of projects (@Bold_2018). Indeed, bilateral donors have strategic reasons in aid selection which has rebounded in NGO restriction ws targeting democracy/governance promotion from countries wary of foreign interference and Western imperialism. As the biggest donor, the US has also concentrated aid on legacy and soft power concenrs attempting to win hearts and minds. By providing public service goods such as health and education outcomes, recipient citizens are informed of where aid comes from and often its conditionality. While aid improves trust in foreign institutions, these soft power battles and their implementation through state and non-state actors have lasting effects on institutional capacity. Foreign aid is controlled by outside donors based on percieved recpient corruption and geopolitical importance or donor foreign policy objectives and ignorance. In summary, the exisiting literature recognizes the precarious relationship between foreign aid and quality of government due to leakage, implementation difficulties, and disruptions to state institutions (@Dietrich_2023).
+
+I plan to analyze US aid projects by category: humanitarian, economic, military, and development, and development sectors: education, governance, healthcare, infrastructure, etc. with perceptions of corruption in a cross country analysis. Although humanitarian and military aid would be expected to target areas specifically in crisis and strategic objectives, economic and development aid would be expected to target countries where poverty prevention and long-term political, social, and economic development seem feasible i.e. sufficient state capacity to implement projects partnering with recipients. NGOs contribute primarily to health, education, agriculture, and social infrastructure costs moreso than government institutions as donors prefer NGOs over local capabilities whenever possible. Donors also recognize instability and local incapacity harming these sectors and the effective rate of return for service delivery. However, NGOs are unable to contribute to industries with hardcore infrastructure cosets such as transportation, energy, water/sanitation, business/trade development, etc. Thus, the impact on citizen perception of government service delivery should center around high cost infrastructure rather than direct delivery service which is often appropriated by NGOs. I am ultimately interested in whether bilateral development aid is effective and to what extent it fuels petty or elite corruption.
+
+Previous studies have examined the effect of foreign aid on corruption through mega studies, analyzing total ODA disbursements compared to national corruption ratings. One example found no significant reduction impact on corruption but failed to differentiate by aid type or recipient (@Okada_2012). My research design attempts to go beyond this generalist approach by specifying a donor, the US, as a case study where strategic interests may impact aid commitments, and identifying causal pathways by which different sectors and aid purposes affect institutions and public perceptions in development. My appraoch similarly relies on aid commitments due to the difficulty in accessing accurately reported disbursements. As a robustness check, I will also utilize alternative corruption perception indexes such as Transparency International or regional barometers.
+
+------------------------------------------------------------------------
+
+#2. Hypotheses
+
+Although foreign aid is increasingly effective and resistance to leakage, the foreign delivery of services affects recipient capabilities. While multilateral development aid prioritizes delivery where preferences overlap, bilateral development is dependent on variable domestic factors which may further disrupt effective aid.As a result, I predict bilateral development aid has complex effects varying by sector on recipient quality of governance. Specifically, I predict that aid which delivers services reliably susceptible to leakage and corruption and for these reasons generally through non-state actors such as healthcare, social infrastructure, and education will decrease perceptions of corruption due to credit claiming. These sectors, which low capacity states ineffectively provide, are vital for alleviating human suffering and improving citizen outcomes. Thus, donors will prioritize these industries for political and logistical ease. As donors seek to more effectively provide services and inform citizenry of their benevolence, I expect domestic governance capabilities will resultedly decrease while citizens' perception of domestic governments will be distracted by temporary service deployment.
+
+Conversely, governance aid, aid specifically designed to promote state capacity, will have limited effects. Governance projects compete with foreign aid service delivery and thus even successful projects increasing state capacity will have less impact on citizen perception than these far reaching projects impacting daily lives. Additionally, citizens perception of governance will be more largely controlled by trust in local and national institutions and their credit claiming of foreign aid service delivery. Thus increasing US aid funding for sectors delivering services will cause increased perceptions of corruption. In comparison, increasing or decreasing US aid funding for governance projects will cause negligible changes in perceptions of corruption. These predictions reflect earlier cited research and my own theoretical reasoning that citizens will respond more effectively to high implementation projects involving service delivery. Inversely, governance projects targeting unstable areas will suffer from existing corruption, target areas with traditional implementation problems, and have minimal impact on citizenry.
+
+Finally, military and humanitarian aid are highly realizable services in emergency areas and based heavily on donor strategic interests. Thus, increasing US aid funding for military and humanitarian aid will cause increased perceptions of corruption. These types of aid highlight state incapacity in highly public examples minimizing the ability for local credit claiming and creating distrust of foreign interference.
+
+------------------------------------------------------------------------
+
+#3a. Data
+
+Ultimately, local or elite corruption is incredibly difficult to measure accurately. Inherently obscured and protected, any measure of corruption relies on significant assumptions. Effective measures to observe aid leakage and state corruption have been designed but for this project I am more interested in perceptions of local and state corruption as effective benchmarks and as governance tools in and of themselves. World Bank Group research has shown that citizen perceptions of state trust and legitimacy directly effect state capacity and developmental outcomes. However, citizen perceptions are volatile and likely to under or overestimate real levels of corruption. To better define causality, I would prefer to utilize geocoded data to protect against exogenous factors that affect citizen perceptions irrespective of foreign aid and isolate a causal pathway by which aid effects perceptiosn of corruption. Due to the difficulty of geocoded data use, I will instead rely on aggregate measures understanding the significant challenges to causality.
+
+For the independent variable, foreign aid commitments by sector, I will use AidData's Research Release on Development Projects Summary. "AidData's Core Research Release 3.1 is a snapshot of AidData's entire project-level database which includes commitment information for over 1.5 million development finance activities funded between 1947 and 2013 covering 96 donors" (@AidData_2017). This data captures development projects by donor, recipient, commitment, finances, sector, and purpose. The unit of analysis is projects and I will filter by donor for US projects and sector for different regressions. My unit of analysis will be aid sectors by year.
+
+For the dependent variable I will use corruption indexes from a variety of sources including household surveys (Afrobarometer surveys, Gallup World Poll, and Global Competitiveness Report survey, etc.), Commercial business information providers, Non-governmental organizations, and Public sector organizations aggregated by World Governance Indicators from the World Bank Group. This measure aggregates a variety of original primary data that cover multiple countries and report respondents' perceptions of relevant dimensions of governance. WGI includes 6 aggregated measures of governance for over 200 economies over the period 1996–2023 including Voice and Accountability, Political Stability and Absence of Violence/Terrorism, Government Effectiveness, Regulatory Quality, Rule of Law, and Control of Corruption. I will focus on Control of Corruption as a measure of percieved corruption. Although the measure is methodologically sound, there are significant maintained assumptions in using this aggregated measure for countries but it should correlate strongly with perceived legitimacy and competence. The unit of analysis is countries by year.
+
+#3b. Descriptive Statistics and Graphical Representations
 
 ```{r}
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 #| include: true
-#latino <- Latinobarometro_2023_Eng_v1_0
-library(haven)
-latino <- read_dta("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/Latinobarometro_2023_Eng_Stata_v1_0.dta")
-table(latino$idenpa)
-colombia <- subset(latino, idenpa == 152)
-#Measure of elite corruption: P12ST. Generally speaking, would you say that (country) is governed by a few powerful groups in their own interest? Or is it governed for the good of all?
-table(colombia$P12ST)
-mean(colombia$P12ST)
-#Measure of national government trust
-table(colombia$P13ST_E)
-mean(colombia$P13ST_E)
-#Measure of perception of corruption
-table(colombia$P60ST)
-mean(colombia$P60ST)
 
-projects <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/ColombiaAIMS_GeocodedResearchRelease_Level1_v1.1.1/data/projects.csv")
-location <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/ColombiaAIMS_GeocodedResearchRelease_Level1_v1.1.1/data/locations.csv")
-projects <- subset(projects, donors_iso3 == "USA")
-colombia.aid <- merge(projects, location, by = "project_id")
+library("haven")
+library("readxl")
+library("dplyr")
+library("tidyverse")
+library("survey")
+library("sjlabelled")
+library("sandwich")
+library("plm")
+library("car")
+library("AER")
+library("did")
+library("panelView")
+library("janitor")
+library("readr")
+library("stringr")
+library("skimr")
+library("knitr")
 
-#ggplot() + 
-  #geom_line(data=colombia, aes(x=year, y=P60ST), color='blue') + 
-  #geom_line(data=colombia.aid, aes(x=transactions_start_year, y=total_commitments), color='red')"
+#World Governance Indicators
+wgi <- read_excel("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/wgidataset_with_sourcedata.xlsx")
+wgi <- wgi %>%
+  filter(indicator == "cc")
 
-#ggplot(colombia, aes(x=colombia.aid, y=P60ST)) + geom_point() +
-    #labs(y="Perception of Corruption", x = "Aid Projects")
+#AidData project level data to aggregate
+aid <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/AidDataCore_ResearchRelease_Level1_v3.1/AidDataCoreFull_ResearchRelease_Level1_v3.1.csv")
+usaid <- subset(aid, donor_iso == "US")
+  usaid <- usaid %>%
+  select(-c(4:6, 9, 12:17, 38:68))
 
-#Using different corruption measures, I would plot their value every year with aid projects in a line graph. Further analysis would be done by mapping location ID from aid projects and region/city variable in latinobarometro. I would also include total aid and then seperated by sector, dependent on having sufficient observations of a sector (Colombia as an example has fewer aid projects). Significant data cleaning still required.
+#Aggregating aid data by sector
+usaid_summary <- usaid %>%
+  group_by(recipient, year, crs_sector_name) %>%
+  summarize(aid_commitments = sum(commitment_amount_usd_current, na.rm = TRUE),
+  )
+usaid_summary2 <- usaid_summary %>%
+  rename(countryname = recipient,
+         sector = crs_sector_name) %>%
+  filter(sector %in% c("I.5.a. Government & Civil Society-general", "I.3. Population Pol./Progr. & Reproductive Health", "VIII.1. Emergency Response", "I.6. Other Social Infrastructure & Services", "I.2.b. Basic Health"))
 
-#I would repeat the process for each country listed above with geocoded aid project data provided by AidData
+#Merged dataset
+d2 <- left_join(wgi, usaid_summary2, by = c("countryname", "year"))
+d2 <- d2 %>%
+  mutate(log_aid = log10(aid_commitments),
+         index = as.numeric(estimate)) %>%
+  filter(!is.na(sector)) %>%
+  filter(aid_commitments != 0)
+
+#Descriptive statistics
+d4 <- d2 %>%
+  select(c(3:4, 49:52))
+summary_table <- skim(d4)
+
+kable(summary_table, caption = "Summary Statistics for Variables")
+
+#Graphing
+d3 <- d2 %>%
+  group_by(year, sector) %>%
+  summarize(mean_log_aid = mean(log_aid, na.rm = TRUE),
+            mean_index = mean(index, na.rm = TRUE),
+  )
+
+ggplot(d3, aes(x = year)) +
+  geom_line(aes(y = (mean_log_aid/6)-1.5), color = "blue") +
+  geom_line(aes(y = mean_index), color = "red") +
+  scale_y_continuous(
+    name = "Common Scale") +
+  labs(title = "Foreign Aid vs Corruption Index Over Time",
+       x = "Year", color = "Metric",
+       caption = "Displaying the relationship between aid commitments and corruption over time.\nLogistic measure of aid commitments in dollars in blue. Corruption scale from -2.5 to 2.5 in red.\nIncludes all countries globally from 1996-2012") +
+  facet_wrap(~ sector) +
+  theme_minimal()
+
+ggplot(d2, aes(x = log_aid, y = index)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  facet_wrap(~ sector) +
+  scale_x_continuous(labels = scales::dollar) +
+  labs(
+    title = "Relationship Between Aid Commitments and Corruption by Sector",
+    x = "Aid Commitments (Logistic Scale in $)",
+    y = "Corruption Index",
+    caption = "Displaying the relationship between aid commitments and corruption separated by sector of aid.\nCorruption scale from -2.5-2.5. Includes all countries globally from 1996-2012"
+  ) +
+  theme_minimal()
 ```
 
-4.  Regression Design
-  a. Regression Model
+This graph displays aggregated mean corruption index scores and aggregated mean commitments on a common scale for all countries that received over the timescale 1996-2012. The scale is meaningless, only the trend suggests some level of correlation between the changing levels of aid and corruption measures. A better correlation would be established my lagging the independent variable, aid commitments.
 
-```{r}
-#| echo: true
-#| message: false
-#| warning: false
-#| include: true
-#lm(P60ST ~ colombia.aid, colombia)
-#Renamed corruption variable by number or funds of project
-#Final regression will be 
-#lm(Corruption ~ Aid + country.fixed.effects or region.fixed.effects + year.fixed.effects + individual.controls)
+The second graph displays the relationship between aid commitments and corruption measure by sector. Every point is a recipient country, year, and aggregation of projects by sector. No casual relationship is explained, this graph instead displays how the flow of aid by sector is correlated with corruption scores. Contrary to my hypotheses, generally the most aid flows to countries with the lowest corruption score, especially governance and emergency response aid. Institutional capacity is an effective predictor of aid commitments but is also inextricably tied to perceptions of corruption.
 
-#https://doi.org/10.1016/j.jpubeco.2018.01.002
-#Emulating a research design used on Chinese foreign aid in Africa but at the region/city level (minmizes causality but far better than country data and managemable)
-#lm(Corruption ~ Active.aid.dummy.variable + Inactive.aid.dummy.variable + country.fixed.effects or region.fixed.effects + year.fixed.effects + individual.controls)
-#No aid project being omitted variable
-```
+Graphical measures are difficult due to significant amounts of data from all countries, multiple decades, and numerous categories of aid sectors. I plan to aggregate by region and by the aid categories within my hypotheses in order to make graphical representation possible.
+
+------------------------------------------------------------------------
+
+#4a. Regression Model
 
 $$
-Y_i = \beta_1 \times active_i + \beta_1 \times inactive_i + \alpha_s + \theta_t + \lambda \times X_i + \epsilon
-$$
+Y_i,_t = \alpha_i,_t + \beta_1 \times aid_i,_t + \beta_2 \times sector_i,_t + \beta_3 \times aid_i,_t \times sector_i,_t + \theta_t + \lambda_i + \epsilon_i,_t
+$$ Model specification: Y is corruption index in the country i at year t, a is an intercept, B1 is is the coefficient on aid commitments, B2 is the sector of aid, theta is the time fixed effects, lambda is the country fixed effects, and epsilon is the standard error.
 
-  b. Empirical Extension
+Final regression will be lm(Corruption \~ Aid + Sector + Aid*Sector+ country.fixed.effects + year.fixed.effects + individual.controls). lm(index \~ log_aid*sector + countryname + year + controls). Fixed effects should control for potential confounders.
+
+#4b. Empirical Extension
+
+Causality is difficult to establish at this scale. Besides the nationalized measures of corruption and aid flows restricting causal inference, aid and corruption are inextricably linked and threaten reverse causality. For one empirical extension to support my causal hypotheses, I will lag the independent variable, aid flows, by various measures including 1, 2, 3 year lags to show similar effects and whether these effects persist i.e. does aid in 2010 affect trust in 2011, 2012, 2013, etc. Similarly, I will lead the independent variable to estimate whether reverse causality is a threat to causal inference i.e. does aid in 2010 affect trust in 2009.
+
+Additionally, my sector hypotheses predict that aid by categories and purpose will have differing effects on perceptions of corruption. While governance, humanitarian, and health aid will both flow to the most corrupt countries, I expect a treatment effect from governance aid and a placebo effect from humanitarian and health aid. Although these disparate types of aid will flow to similar countries, health and humanitarian aid can be expected to vary randomly by crises and thus will be an effective placebo test to estimate the effectiveness of governance aid. Similarly, I predict service aid (infrastructure, economic, etc. excluding health) will flow to less corrupt countries and have a larger effect on minimizing perceptions of corruption. I predict these aid types vary based on type of country they primarily flow to and thus controls for institutional capacity could be an effective instrumental variable. However, all aid types are institutionally correlated, humanitarian aid least likely, but still an imperfect measure.
+
+Finally, another empirical extension includes certain countries, worst-case scenarios, where corruption runs rampant reliably. Thus effective or ineffective aid should have clear effects on countries most susceptible to elite or petty capture which otherwise should be expected to have stable corruption scores across time. I can check these results utilizing survey barometer data to specifically analyze elite capture by more micro individualized responses.

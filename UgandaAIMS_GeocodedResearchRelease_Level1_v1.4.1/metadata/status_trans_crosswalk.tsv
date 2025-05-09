@@ -1,0 +1,5 @@
+status_name	ad_status_code	status	ad_sector_description
+Ongoing	2	Implementation	The activity is currently being implemented
+Planned	1	Pipeline/identification	The activity is being scoped or planned
+Closed	3	Completion	Physical activity is complete or the final disbursement has been made.
+Committed	2	Implementation	The activity is currently being implemented

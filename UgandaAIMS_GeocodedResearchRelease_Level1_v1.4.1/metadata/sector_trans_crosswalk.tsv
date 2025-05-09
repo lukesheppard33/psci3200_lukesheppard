@@ -1,0 +1,20 @@
+sector_value	ad_sector_codes	ad_sector_names	ad_purpose_code	ad_purpose_name
+BUDGET SUPPORT	510	General budget support	51010	General budget support
+TOURISM, TRADE AND INDUSTRY	331	Trade policy and regulations	33100	Trade policy and regulations, combination of purposes
+PUBLIC SECTOR MANAGEMENT	151	Government and civil society, general	15120	Public sector financial management
+WORKS AND TRANSPORT	210	Transport and storage	21000	Transport and storage, combination of purposes
+AGRICULTURE	311	Agriculture	31100	Agriculture, combinations of purposes in agriculture, agro-industry, agribusiness
+LANDS, HOUSING AND URBAN DEVELOPMENT	160	Other social infrastructure and services	16030	Housing policy and administrative management
+PUBLIC ADMINISTRATION	151	Government and civil society, general	15140	Government administration
+ACCOUNTABILITY	151	Government and civil society, general	15120	Public sector financial management
+HEALTH	120	Health	12000	Health, combination of general, basic, and population policy/reproductive health purposes
+JLOS	151	Government and civil society, general	15130	Legal and judicial development
+SOCIAL DEVELOPMENT	160	Other social infrastructure and services	16010	Social/ welfare services
+WATER AND ENVIRONMENT	140	Water supply and sanitation	14000	Water supply and sanitation, combination of purposes
+ENERGY AND MINERAL DEVELOPMENT	230	Energy generation and supply	23000	Energy generation and supply, combinations of activities
+EDUCATION	110	Education	11000	Education, combinations of purposes
+SECURITY	152	Conflict prevention and resolution, peace and security	15200	Conflict prevention and resolution, peace and security, combinations of activities
+SECTOR NAME	998	Unallocated/ unspecified	99810	Sectors not specified
+LEGISLATURE	151	Government and civil society, general	15140	Government administration
+INFORMATION AND COMMUNICATION TECHNOLOGY	220	Communications	22000	Communications, combinations of activities
+Unspecified	998	Unspecified	99810	Unspecified
