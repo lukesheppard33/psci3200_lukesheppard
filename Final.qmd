@@ -117,6 +117,37 @@ summary_table <- skim(d4)
 
 kable(summary_table, caption = "Summary Statistics for Variables")
 
+desciptives = dat %>%
+  group_by(moved) %>%
+  summarise(observations = n(), 
+            share = observations / nrow(dat),
+            mean = mean(add_participation, na.rm = T)) %>%
+  mutate(moved = case_when(moved == 0 ~ "No",
+                           moved == 1 ~ "Yes"),
+         share = share *100)
+
+gt(desciptives) %>%
+  tab_header(
+    title = "Moving to University and Political Participation",
+  ) %>%
+  fmt_number(
+    columns = 3:4,
+    decimals = 2,
+    use_seps = FALSE
+  ) %>%
+  cols_label(
+    moved = md("Moved to<br>Addis"),
+    observations = md("Respondents<br>(count)"),
+    share = md("Respondents<br>(%)"),
+    mean = md("Participation<br>(mean score)")
+  ) 
+
+
+
+
+
+
+
 
 !!!!!!!Workload: Cleaning and aggregating the sector category, need to explore the various measures and do significant recoding. Need to lag my IV by various measures and lead it. Add country and time fixed effects into my model. Use marginal effects plot and data means to display effects graphically. Create a Github website. Identify worst-case scenarios.
 
@@ -274,4 +305,114 @@ Think about "most likely" design? Such that in worse case scenarios effect not o
 
 #6. Discussion and Policy Implications
 
+```{r}
+#Region robust test, need to create region variable
+region_countries <- c("Kenya", "Uganda", "Tanzania", "Rwanda", "Ethiopia")
 
+df_region <- d4_clean %>% 
+  filter(countryname %in% region_countries)
+
+model_region <- feols(
+  index ~ aid_lag1 * sector*countryname | countryname,
+  data = df_region
+)
+
+predicted_region <- ggpredict(model_region, terms = c("aid_lag1", "sector", "countryname"))
+head(predicted_region)
+ggplot(predicted_region, aes(x = x, y = predicted, color = group)) +
+  geom_line(color = "steelblue", size = 1.2) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), fill = "lightblue", alpha = 0.2) +
+  facet_wrap(~facet, scales = "free_y") +
+  labs(
+    title = "Predicted Corruption Index by Lagged Aid, Faceted by Sector (Selected Countries)",
+    x = "Lagged Log Aid Commitments",
+    y = "Predicted Corruption Index",
+    caption = "Each panel = sector; higher index = less corruption"
+  ) +
+  theme_minimal()
+
+
+
+ggplot(predicted7, aes(x = x, y = predicted, color = group)) +
+  geom_line(size = 1.2) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group), alpha = 0.2, color = NA) +
+  labs(
+    title = "Predicted Corruption Index by Lagged Aid and Sector",
+    x = "Lagged Log Aid Commitments",
+    y = "Predicted Corruption Index",
+    color = "Sector",
+    fill = "Sector"
+  ) +
+  theme_minimal()
+
+
+
+
+
+
+
+```
+
+```{r}
+library(haven)
+latino <- read_dta("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/Latinobarometro_2023_Eng_Stata_v1_0.dta")
+table(latino$idenpa)
+
+latino11 <- read_dta("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/Latinobarometro_2011_dta/Latinobarometro_2011_eng.dta")
+
+#Colombia barometer
+colombia <- subset(latino, idenpa == 152)
+#Measure of elite corruption: P12ST. Generally speaking, would you say that (country) is governed by a few powerful groups in their own interest? Or is it governed for the good of all?
+table(colombia$P12ST)
+mean(colombia$P12ST)
+#Measure of national government trust
+table(colombia$P13ST_E)
+mean(colombia$P13ST_E)
+#Measure of perception of corruption
+table(colombia$P60ST)
+mean(colombia$P60ST)
+
+#Honduras barometer
+honduras <- subset(latino, idenpa == 320)
+#Measure of elite corruption: P12ST. Generally speaking, would you say that (country) is governed by a few powerful groups in their own interest? Or is it governed for the good of all?
+table(honduras$P12ST)
+mean(honduras$P12ST)
+#Measure of national government trust
+table(honduras$P13ST_E)
+mean(honduras$P13ST_E)
+#Measure of perception of corruption
+table(honduras$P60ST)
+mean(honduras$P60ST)
+
+#Colombia projects
+projects.c <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/ColombiaAIMS_GeocodedResearchRelease_Level1_v1.1.1/data/projects.csv")
+location.c <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/ColombiaAIMS_GeocodedResearchRelease_Level1_v1.1.1/data/locations.csv")
+projects.c <- subset(projects.c, donors_iso3 == "USA")
+colombia.aid <- merge(projects.c, location.c, by = "project_id")
+colombia.aid2 <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/ColombiaAIMS_GeocodedResearchRelease_Level1_v1.1.1/data/level_1a.csv")
+colombia.aid2 <- subset(colombia.aid2, donors_iso3 == "USA")
+
+
+#Honduras projects
+projects.h <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/HondurasAIMS_GeocodedResearchRelease_Level1_v1.3.1/data/projects.csv")
+location.h <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/HondurasAIMS_GeocodedResearchRelease_Level1_v1.3.1/data/locations.csv")
+#projects.h <- subset(projects.h, donors_iso3 == "USA")
+honduras.aid.total <- merge(projects.h, location.h, by = "project_id")
+honduras.aid2 <- read.csv("C:/Users/lukes/OneDrive/Documents/GitHub/psci3200_lukesheppard/HondurasAIMS_GeocodedResearchRelease_Level1_v1.3.1/data/level_1a.csv")
+table(projects.h[projects.h$donors_iso3 == "USA", "transactions_end_year"])
+table(honduras$P1ST)
+table(colombia$P1ST)
+
+
+#ggplot() + 
+  #geom_line(data=colombia, aes(x=year, y=P60ST), color='blue') + 
+  #geom_line(data=colombia.aid, aes(x=transactions_start_year, y=total_commitments), color='red')"
+
+#ggplot(colombia, aes(x=colombia.aid, y=P60ST)) + geom_point() +
+    #labs(y="Perception of Corruption", x = "Aid Projects")
+
+
+
+
+#https://www.tandfonline.com/doi/full/10.1080/21665095.2021.1919538#inline_frontnotes
+```
